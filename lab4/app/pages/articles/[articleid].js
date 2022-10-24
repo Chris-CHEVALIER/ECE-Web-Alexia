@@ -2,15 +2,12 @@ import Header from '../../comps/header'
 import Footer from '../../comps/footer'
 import Menu from '../../comps/menu'
 import styles from '../../styles/Home.module.css'
-import content from '../../content/articles.js'
 import { useEffect} from 'react';
-//import Article from '../../content/articles.js'
 import { useRouter} from 'next/router'
-
 export default function DisplayArticles({dataExport}) {
   const router = useRouter();
   const {articleid} = router.query;
-
+ let description
 return dataExport.map(function(item){
 
     if (item.id === articleid) {
