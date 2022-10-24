@@ -1,10 +1,5 @@
 # Webtech - S7
 
-lab 2 - create a server with http protocol
-manage different sort of paths (/hello ; /hello?name=; /about; error)
-
-
-Lab 3 - refactor the previous server with express
 
 ## Authors
 
