@@ -1,7 +1,6 @@
-import Header from '../../comps/header'
-import Footer from '../../comps/footer'
+import Header from '../../comps/Header'
+import Footer from '../../comps/Footer'
 import Menu from '../../comps/menu'
-import styles from '../../styles/Home.module.css'
 import { useEffect} from 'react';
 import { useRouter} from 'next/router'
 export default function DisplayArticles({dataExport}) {
@@ -19,16 +18,16 @@ return dataExport.map(function(item){
         <div>
            <ul>
               <li>
-              title : {item.title}
+                <p class="text-lg font-medium text-gray-900 dark:text-white"> <span class="italic font-bold"> title : {item.title} </span></p>
               </li>
               <li>
-                content : {item.content}
+                <p class="text-lg font-medium text-gray-900 dark:text-white"> <span class="italic font bold"> content : {item.content} </span></p>
               </li>
               <li>
-                date : {item.date}
+                <p class="text-lg font-medium text-gray-900 dark:text-white"> <span class="italic font-bold"> date : {item.date} </span></p>
               </li>
               <li>
-                author : {item.author}
+                <p class="text-lg font-medium text-gray-900 dark:text-white"> <span class="italic font bold"> author : {item.author} </span></p>
               </li>
           </ul>
         </div>
@@ -38,6 +37,7 @@ return dataExport.map(function(item){
 
 
 }
+
 
 export async function getServerSideProps(){
   const url = 'http://localhost:3000/api/articlesblog';

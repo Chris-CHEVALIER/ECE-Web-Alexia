@@ -1,11 +1,10 @@
-import Header from '../comps/header'
-import Footer from '../comps/footer'
+import Header from '../comps/Header'
+import Footer from '../comps/Footer'
 import Menu from '../comps/menu'
-import styles from '../styles/Home.module.css'
+
 export default function about() {
   return (
     <div>
-    < Header />
     < Menu />
       <h1>
         AboutPage
@@ -13,9 +12,6 @@ export default function about() {
       <p>
       this is a the about page.
       </p>
-      <footer>
-        <Footer />
-      </footer>
 
     </div>
   )

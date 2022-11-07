@@ -7,7 +7,7 @@ const Menu = () =>
     <ul>
       <li>
         <Link href="/home">
-          <a>HomePage</a>
+          <a>Home Page</a>
         </Link>
       </li>
       <li>
@@ -21,7 +21,7 @@ const Menu = () =>
         </Link>
       </li>
       <li>
-        <Link href="/articles">
+        <Link href="/articlesblog">
           <a>Articles</a>
         </Link>
       </li>
