@@ -7,7 +7,6 @@ import Image from 'next/image'
 
 
 
-
 // HOME FUNCTION 
 
 function Home() {

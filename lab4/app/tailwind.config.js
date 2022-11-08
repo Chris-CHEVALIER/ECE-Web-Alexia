@@ -3,6 +3,10 @@
  * @type {import('@types/tailwindcss/tailwind-config').TailwindConfig}
  * 
  */
+
+ const defaultTheme = require('tailwindcss/defaultTheme')
+
+
 module.exports = {
   content : [
     {darkMode: 'media'},
@@ -11,16 +15,22 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
     "./src/**/*.{html,js}"
    
-
   ],
   theme: {
-    extend: {}
+    extend: {
+      fontFamily: {
+        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+      },
+    },
   },
   plugins: [
-    require("flowbite/plugin", "tailwindcss-font-inter",
-    "@tailwindcss/typography",
-    "@tailwindcss/forms)")
+    require("flowbite/plugin", 
+            "tailwindcss-font-inter",
+            "@tailwindcss/typography",
+            "@tailwindcss/forms)")
     
    
   ]
 }
+
+

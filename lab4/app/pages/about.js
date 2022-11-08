@@ -4,15 +4,20 @@ import Menu from '../comps/menu'
 
 export default function about() {
   return (
-    <div>
-    < Menu />
-      <h1>
-        AboutPage
-      </h1>
-      <p>
-      this is a the about page.
-      </p>
+    <section>
+      <div class="wt-title">
+        <p> About Us</p>
+      </div>
+      <div class="about-body">
+        <p> Antoine </p>
+      </div>
+      <div class="about-body">
+        <p> Alexia </p>
+      </div>
+    </section>
+      // <p>
+      // this is a the about page.
+      // </p>
 
-    </div>
   )
 }
