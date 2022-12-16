@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face{  
+  font-family: "Georgia";
+  
+
+}
+
+.wt-title {
+    @apply text-3xl font-bold underline mb-10;
+  }
+
