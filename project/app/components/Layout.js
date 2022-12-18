@@ -8,7 +8,7 @@ export default function Layout({
   return (
     <div>
       <Header />
-      <main className="py-15 min-h-screen max-w-screen md:max-w-2xl md:mx-auto dark:bg-gray-900">
+      <main className="min-h-screen max-w-screen bg-slate-200 dark:bg-gray-900">
       {children}
       </main>
       <Footer />
