@@ -17,26 +17,7 @@ export default function Home() {
         <meta name="description" content="Web technologies blogging application" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1 className="wt-title dark:text-slate-100">
-        Welcome to <a href="https://www.adaltas.com">web technologies!</a>
-      </h1>
-      <ul className="dark:text-slate-100">
-        <li>
-          <Link href="/articles">
-            View our articles
-          </Link>
-        </li>
-        <li>
-          <Link href="/about">
-            About us
-          </Link>
-        </li>
-        <li>
-          <Link href="/contact">
-            Contact us
-          </Link>
-        </li>
-      </ul>
+      <img src="/welcomehome.png" alt="homepage" />
     </Layout>
   )
 }

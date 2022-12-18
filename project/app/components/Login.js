@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import { useRouter } from 'next/router'
 import OutlineUserCircleIcon from '@heroicons/react/24/outline/UserCircleIcon.js'
 import UserContext from './UserContext'
+// import ProfileDropDown from './ProfileDropdown'
 
 export default function LoggedIn(){
   const router = useRouter()
@@ -13,6 +14,7 @@ export default function LoggedIn(){
       router.push('/login')
   }
   return (
+
     <button
       className="flex gap-2 [&_svg]:h-6 [&_svg]:w-6"
       onClick={onClick}
@@ -31,3 +33,4 @@ export default function LoggedIn(){
     </button>
   )
 }
+
