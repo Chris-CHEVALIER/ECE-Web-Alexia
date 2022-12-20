@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react'
 
+
 export default function Account({ session }) {
   const supabase = useSupabaseClient()
   const user = useUser()
@@ -18,7 +19,7 @@ export default function Account({ session }) {
       setLoading(true)
 
       let { data, error, status } = await supabase
-        .from('profiles')
+        .from('profile')
         .select(`username, website, avatar_url`)
         .eq('id', user.id)
         .single()
