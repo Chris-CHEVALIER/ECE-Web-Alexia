@@ -30,7 +30,7 @@ export default function Home({ articles }) {
                 </svg>
               </a>
             </div>
-
+            
             {/* <section class="text-gray-600 body-font dark:text-">
               <div class="container px-5 py-24 mx-auto">
                 <div class="flex flex-col text-center w-full mb-20">
@@ -149,6 +149,14 @@ export default function Home({ articles }) {
             </section> */}
           </Link>
         ))}
+      </div>
+
+      <div className="md:flex-grow mt-10">
+              <a  className="inline-flex items-center mt-4">
+                <Link href="/articles/createArticle">
+                  add article
+                 </Link>
+              </a>
       </div>
     </Layout>
   );
