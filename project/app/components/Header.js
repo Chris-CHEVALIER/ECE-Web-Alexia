@@ -3,8 +3,11 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Login from './Login'
 import ProfileDropDown from './ProfileDropdown'
+import { useSession } from '@supabase/auth-helpers-react'
 
 export default function Header(){
+
+  const session = useSession()
 
   return (
     <header className="sticky top-0 z-50 flex bg-slate-200 px-10 py-5 dark:bg-gray-900 dark:text-white">
@@ -39,9 +42,13 @@ export default function Header(){
           
         </li>
       </ul>
-      <div className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-3 pt-2 mr-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
-        <Login />
-        <ProfileDropDown/>
+      <div className="text-gray-900 text-sm mr-2 mt-3 dark:text-slate-200">
+        {!session ? (<Login />)
+
+        :
+          <ProfileDropDown />
+        }
+      
       </div>
 
     </header>

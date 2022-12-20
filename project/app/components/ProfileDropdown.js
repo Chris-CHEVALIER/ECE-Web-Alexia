@@ -3,7 +3,7 @@ import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
 import Context from "../components/UserContext";
 // import Account from "../pages/account";
 // import Avatar from "./layout/Avatar";
-// import Link from "next/link";
+import Link from "next/link";
 
 
 
@@ -27,6 +27,7 @@ export default function ProfileDropDown() {
             aria-haspopup="true"
           >
             {/* <Avatar email={session.user.email} /> */}
+            Profile
           </button>
         </div>
         {isOpen && (
@@ -42,7 +43,7 @@ export default function ProfileDropDown() {
               <div class="font-medium truncate">{session.user.email}</div>
             </div>
             <div class="py-1" role="none">
-              <Link href="/account">
+              <Link href="/login">
                 <button
                   type="submit"
                   class="text-gray-700 block w-full px-4 py-2 text-left text-sm"
@@ -90,6 +91,11 @@ export default function ProfileDropDown() {
     </>
   );
 }
+
+  
+
+
+// LAYOUT 
 
 
 {/* <div id="dropdown" className="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
