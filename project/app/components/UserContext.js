@@ -5,27 +5,26 @@ const UserContext = createContext()
 
 export default UserContext
 
-export function UserContextProvider({
-  children
-}) {
+export function UserContextProvider ({ children }) {
   const supabaseClient = useSupabaseClient()
   const supabaseUser = useUser()
-  const [user, setUser] = useState()
   const [loading, setLoading] = useState(true)
-  useEffect(function() {
+
+  useEffect(() => {
     if (supabaseUser) {
-      setUser(supabaseUser)
       setLoading(false)
-    } 
+    }
   }, [supabaseUser])
+
   return (
     <UserContext.Provider
       value={{
-        user: user,
-        logout: async function() {
+        user: supabaseUser,
+        logout: async function () {
           await supabaseClient.auth.signOut()
-          setUser(null)
-        }
+        },
+        supabase: supabaseClient,
+        loading: loading
       }}
     >
       {children}

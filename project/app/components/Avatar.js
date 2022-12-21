@@ -1,13 +1,12 @@
+import md5 from 'md5'
 
-import md5 from "md5" 
+const BASE_URL = 'https://www.gravatar.com/avatar/'
 
-const BASE_URL = "https://www.gravatar.com/avatar/"
-
-export default function Avatar({email}) {
-    const hash = md5(email.trim().toLowerCase())
-    return <img className="rounded-3xl h-9 w-9" src={`${BASE_URL}${hash}`}/>
+export default function Avatar ({ email }) {
+  console.log(email)
+  const hash = md5(email.trim().toLowerCase())
+  return <img className='rounded-3xl h-9 w-9' src={`${BASE_URL}${hash}`} />
 }
-
 
 // import React, { useEffect, useState } from 'react'
 // import { useSupabaseClient } from '@supabase/auth-helpers-react'

@@ -1,21 +1,29 @@
-import { useState, useEffect } from 'react'
-import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react'
+import { useState, useEffect, useContext } from 'react'
 import Avatar from './Avatar'
+import UserContext from './UserContext'
 
-
-export default function Account({ session }) {
-  const supabase = useSupabaseClient()
-  const user = useUser()
+export default function Account (
+  {
+    /* session */
+  }
+) {
   const [loading, setLoading] = useState(true)
   const [username, setUsername] = useState(null)
   const [website, setWebsite] = useState(null)
   const [avatar_url, setAvatarUrl] = useState(null)
 
-  useEffect(() => {
-    getProfile()
-  }, [session])
+  const { user, supabase } = useContext(UserContext)
 
-  async function getProfile() {
+  useEffect(
+    () => {
+      getProfile()
+    },
+    [
+      /* session */
+    ]
+  )
+
+  async function getProfile () {
     try {
       setLoading(true)
 
@@ -42,7 +50,7 @@ export default function Account({ session }) {
     }
   }
 
-  async function updateProfile({ username, website, avatar_url }) {
+  async function updateProfile ({ username, website, avatar_url }) {
     try {
       setLoading(true)
 
@@ -51,7 +59,7 @@ export default function Account({ session }) {
         username,
         website,
         avatar_url,
-        updated_at: new Date().toISOString(),
+        updated_at: new Date().toISOString()
       }
 
       let { error } = await supabase.from('profile').upsert(updates)
@@ -66,43 +74,44 @@ export default function Account({ session }) {
   }
 
   return (
-    <div className="form-widget">
-    <Avatar
-      uid={user.id}
-      url={avatar_url}
-      size={150}
-      onUpload={(url) => {
-        setAvatarUrl(url)
-        updateProfile({ username, website, avatar_url: url })
-      }}
-    />
+    <div className='form-widget'>
+      <Avatar
+        /* uid={user.id}
+        url={avatar_url}
+        size={150} */
+        email={user.email}
+        /* onUpload={url => {
+          setAvatarUrl(url)
+          updateProfile({ username, website, avatar_url: url })
+        }} */
+      />
 
       <div>
-        <label htmlFor="email">Email</label>
-        <input id="email" type="text" value={session.user.email} disabled />
+        <label htmlFor='email'>Email</label>
+        <input id='email' type='text' value={user.email} disabled />
       </div>
       <div>
-        <label htmlFor="username">Username</label>
+        <label htmlFor='username'>Username</label>
         <input
-          id="username"
-          type="text"
+          id='username'
+          type='text'
           value={username || ''}
-          onChange={(e) => setUsername(e.target.value)}
+          onChange={e => setUsername(e.target.value)}
         />
       </div>
       <div>
-        <label htmlFor="website">Website</label>
+        <label htmlFor='website'>Website</label>
         <input
-          id="website"
-          type="website"
+          id='website'
+          type='website'
           value={website || ''}
-          onChange={(e) => setWebsite(e.target.value)}
+          onChange={e => setWebsite(e.target.value)}
         />
       </div>
 
       <div>
         <button
-          className="button primary block"
+          className='button primary block'
           onClick={() => updateProfile({ username, website, avatar_url })}
           disabled={loading}
         >
@@ -111,7 +120,10 @@ export default function Account({ session }) {
       </div>
 
       <div>
-        <button className="button block" onClick={() => supabase.auth.signOut()}>
+        <button
+          className='button block'
+          onClick={() => supabase.auth.signOut()}
+        >
           Sign Out
         </button>
       </div>
@@ -119,9 +131,8 @@ export default function Account({ session }) {
   )
 }
 
-
-
-{/* <section className="pt-16 bg-blueGray-50">
+{
+  /* <section className="pt-16 bg-blueGray-50">
 <div className="w-full lg:w-4/12 px-4 mx-auto">
   <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg mt-16">
     <div className="px-6">
@@ -156,14 +167,14 @@ export default function Account({ session }) {
       </div>
       <div className="text-center mt-12">
         <h3 className="text-xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
-        {session.user.username}
+        {user.username}
           Jenna Stones
         </h3>
         <h4 className="leading-relaxed mb-3">{article.brief}</h4>
         <div className="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
           <i className="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
           Los Angeles, California
-          {session.user.email}
+          {user.email}
         </div>
       </div>
       <div className="mt-10 py-10 border-t border-blueGray-200 text-center">
@@ -179,4 +190,5 @@ export default function Account({ session }) {
   </div>
 </div>
 
-</section> */}
+</section> */
+}

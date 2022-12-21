@@ -2,22 +2,21 @@ import Header from '../comps/Header'
 import Footer from '../comps/Footer'
 import Menu from '../comps/menu'
 
-export default function about() {
+export default function about () {
   return (
     <section>
-      <div class="wt-title">
+      <div className='wt-title'>
         <p> About Us</p>
       </div>
-      <div class="about-body">
+      <div className='about-body'>
         <p> Antoine </p>
       </div>
-      <div class="about-body">
+      <div className='about-body'>
         <p> Alexia </p>
       </div>
     </section>
-      // <p>
-      // this is a the about page.
-      // </p>
-
+    // <p>
+    // this is a the about page.
+    // </p>
   )
 }
